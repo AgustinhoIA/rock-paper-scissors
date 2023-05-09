@@ -1,5 +1,8 @@
 /* declare global varaibles*/
 const options = ["rock", "paper", "scissors"]
+let playerPoints = 0
+let botPoints = 0
+let PlayedRounds = 0
 
 /* create a script that choose at random between rock paper scissors and outputs the result*/
 function botChoice() {
@@ -15,7 +18,7 @@ function playerChoice() {
     
     while (true) {    
         if (!options.includes(pChoice)) {
-                pChoice = prompt("Choose ONLY rock paper or scissors")
+                pChoice = prompt("Choose ONLY rock, paper or scissors")
                 continue;
             } else {
             break;
@@ -25,7 +28,6 @@ function playerChoice() {
 
 
 /* Make a decision tree for the outcome of every match */
-    /* A simple decision tree made of nested If */
 function gameOutcome() {
     document.getElementById("pChoice").innerHTML = 'You choice is ' + pChoice;
     document.getElementById('botChoice').innerHTML = 'PC choice is ' + bChoice;
@@ -34,33 +36,72 @@ function gameOutcome() {
         case "rock":
             if (bChoice == "scissors") {
                 document.getElementById('gameOutcome').innerHTML = 'Rock beats scissors: you win!'
+                playerPoints += 1
             } if (bChoice == pChoice) {
                 document.getElementById('gameOutcome').innerHTML = 'Draw!'
             } else {
                 document.getElementById('gameOutcome').innerHTML = 'Paper beats rock: you loose!'
+                botPoints += 1
             } break;
 
         case "paper": 
             if (bChoice == "rock") {
                 document.getElementById('gameOutcome').innerHTML = 'Paper beats rock: you win!'
+                playerPoints += 1
             } if (bChoice == pChoice) {
                 document.getElementById('gameOutcome').innerHTML = 'Draw!'
             } else {
                 document.getElementById('gameOutcome').innerHTML = 'Scissors beats paper: you loose!'
+                botPoints += 1
             } break;
         case "scissors":
             if (bChoice == "paper") {
                 document.getElementById('gameOutcome').innerHTML = 'Rock beats paper: you win!'
+                playerPoints += 1
             } if (bChoice == pChoice) {
                 document.getElementById('gameOutcome').innerHTML = 'Draw!'
             } else {
                 document.getElementById('gameOutcome').innerHTML = 'Rock beats scissors: you loose!'
+                botPoints += 1
             } break;
-            /* this fuction is still incomplete but Ive run out of time for today. 
-            I need to add the outcome as a quantifiable return*/
-    } return winner
+            
+    } 
+    playedRounds += 1
+    return playedRounds
 }
-/* display the players awnsers */
+
+/* Function to set the max number of rounds to be played */
+function numberOfRounds(){
+    while (true) {
+        let maxRounds = prompt("How many games do you want to play? please answer with positive numbers only:  ")
+        if ((!Number.isNaN(maxRounds)) || (maxRounds < 0)) {
+            alert('Answer with positive numbers only, 1 2 3 are valid answers')
+            continue;
+        } else {break;
+        }
+    }
+   return maxRounds
+}
+
+function rockPaperScissors() {
+    playerPoints = 0
+    botPoints = 0
+    rounds = 0
+    numberOfRounds();
+    while(rounds < maxRounds) {
+        playerChoice();
+        botChoice();
+        gameOutcome();
+        document.getElementById("gameStatus").innerHTML("Scores: you: " + playerPoints + " PC: " + botPoints)
+    } 
+    if (playerPoints > botPoints) {
+        alert("Congratulations! you won!")
+    } if (playerPoints < botPoints) {
+        alert("Too bad, game over!")
+    } else { alert("Its a draw!")
+    }
+}
+rockPaperScissors()
 /* display the result */
 /* display the winner */
 /* update the score and give the option to play again or stop playing*/ 
