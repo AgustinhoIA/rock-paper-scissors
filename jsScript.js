@@ -2,19 +2,25 @@
 const options = ["rock", "paper", "scissors"]
 let playerPoints = 0
 let botPoints = 0
-let PlayedRounds = 0
+let playedRounds = 0
+let maxRounds = null
+let pChoice = null
+let bChoice = null
 
 /* create a script that choose at random between rock paper scissors and outputs the result*/
 function botChoice() {
-    let botRandomNumber = Math.random()*(1 - 3) + 1;
-    let bChoice = options[botRandomNumber]
+    let botRandomNumber = Math.floor(Math.random()* 3);
+    console.log("random number bot" + botRandomNumber)
+    console.log(options[1])
+    bChoice = options[botRandomNumber]
+    console.log(bChoice)
     return bChoice
 }
 
 /* Ask the player to choose an option between rock paper scissors */
     /* this can be by writing down the awnser o seleccting a buttom */
 function playerChoice() {
-    let pChoice = prompt("Choose rock, paper or scissors: ")
+    pChoice = prompt("Choose rock, paper or scissors: ")
     
     while (true) {    
         if (!options.includes(pChoice)) {
@@ -29,7 +35,9 @@ function playerChoice() {
 
 /* Make a decision tree for the outcome of every match */
 function gameOutcome() {
-    document.getElementById("pChoice").innerHTML = 'You choice is ' + pChoice;
+    console.log(pChoice)
+    /* the problems seems to be on this lines, it should be after the element on the inedx.html */
+    document.getElementById("playerChoice").innerHTML = 'Your choice is ' + pChoice;
     document.getElementById('botChoice').innerHTML = 'PC choice is ' + bChoice;
     switch(pChoice) {
 
@@ -66,20 +74,20 @@ function gameOutcome() {
             } break;
             
     } 
-    playedRounds += 1
+    playedRounds = playedRounds + 1
     return playedRounds
 }
 
 /* Function to set the max number of rounds to be played */
 function numberOfRounds(){
     while (true) {
-        let maxRounds = prompt("How many games do you want to play? please answer with positive numbers only:  ")
-        if ((!Number.isNaN(maxRounds)) || (maxRounds < 0)) {
+        maxRounds = prompt("How many games do you want to play? please answer with positive numbers only:  ")
+        if ((parseInt(maxRounds) < 1)) {
             alert('Answer with positive numbers only, 1 2 3 are valid answers')
             continue;
         } else {break;
         }
-    }
+    } console.log(maxRounds)
    return maxRounds
 }
 
@@ -90,9 +98,12 @@ function rockPaperScissors() {
     numberOfRounds();
     while(rounds < maxRounds) {
         playerChoice();
+        console.log("playerChoice ok " + pChoice )
         botChoice();
+        console.log("botChoice ok " + bChoice )
         gameOutcome();
-        document.getElementById("gameStatus").innerHTML("Scores: you: " + playerPoints + " PC: " + botPoints)
+        console.log("gameOutcome ok " + "rounds: " + playedRounds + "player and bot point" + playerPoints + " " + botPoints)
+        document.getElementById("gameStatus").innerHTML = "Scores: you: " + playerPoints + " PC: " + botPoints
     } 
     if (playerPoints > botPoints) {
         alert("Congratulations! you won!")
