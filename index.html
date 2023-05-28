@@ -8,16 +8,48 @@
     
 </head>
 <body>
-    <div class=""></div>
-    <p class="Rules">"Rock Paper Scissors is a game where you choose between rock, paper, or scissors. 
+    <div class="Rules"></div>
+        <p class="text">"Rock Paper Scissors is a game where you choose between rock, paper, or scissors. 
                       Rock beats scissors, scissors beat paper, and paper beats rock. 
                       It's a best-of-three game, and ties are replayed." </p>
-    <p id="playerChoice"></p>
-    <p id="botChoice"></p>
-    <p id="gameOutcome"></p>
-    <p id="gameStatus"></p>
+
+    <div class="choices">
+        <div id="rock">
+            <img src="blank" alt="Rock!">
+            <span>Rock!</span>
+        </div>
+        <div id="paper">
+            <img src="blank" alt="Paper!">
+            <span>Paper!</span>
+        </div>
+        <div id="scissors">
+            <img src="blank" alt="scissors!">
+            <span>Scissors!</span>
+        </div> 
+    </div>
+
+    <div class="hands">
+        <div id="playerHand"></div>
+        <div id="botHand"></div>
+    </div>
+
+
+    <div class="scoreBoard">
+        <div class="outcome">
+        </div>
+        <div class="playerScore"></div>
+        <div class="botScore"></div>
+    </div>
+
+    <div class="reset">
+        <div id="resetText"></div>
+        <div id="resetbtn">
+            <span>reset!</span>
+        </div>
+    </div>
+    
     
 
-    <script type="text/javascript" src="jsScript.js"></script>
+    <script type="text/javascript" src="jsScriptV2.js"></script>
 </body>
 </html>
