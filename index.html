@@ -5,51 +5,82 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
     
 </head>
 <body>
-    <div class="Rules"></div>
+    <div class="Rules">
         <p class="text">"Rock Paper Scissors is a game where you choose between rock, paper, or scissors. 
-                      Rock beats scissors, scissors beat paper, and paper beats rock. 
-                      It's a best-of-three game, and ties are replayed." </p>
+                      Rock beats scissors, scissors beat paper, and paper beats rock. ties are replayed and doesnt count as a round." </p>
+    </div>
 
     <div class="choices">
-        <div id="rock">
-            <img src="blank" alt="Rock!">
-            <span>Rock!</span>
+        <div class="btn" id="rock">
+            <div class="frame">
+                <img src="img/rockBtn.jpg" alt="Rock!">
+                <span>Rock!</span>
+            </div>
+            
         </div>
-        <div id="paper">
-            <img src="blank" alt="Paper!">
-            <span>Paper!</span>
+
+        <div class="btn" id="paper">
+            <div class="frame">
+                <img src="img/paperBtn.jpg" alt="Paper!">
+                <span>Paper!</span>
+            </div>
+            
         </div>
-        <div id="scissors">
-            <img src="blank" alt="scissors!">
-            <span>Scissors!</span>
+
+        <div class="btn" id="scissors">
+            <div class="frame">
+                <img src="img/scissorsBtn.jpg" alt="scissors!">
+                <span>Scissors!</span>
+            </div>
+            
         </div> 
     </div>
 
-    <div class="hands">
-        <div id="playerHand"></div>
-        <div id="botHand"></div>
+    <div class="hands"> 
+        <div id="playerHand">
+            <p>YOU</p>
+            <img id="pHand" src="" alt="">
+            <p id="winnerTextPlayer"></p>
+        </div>
+        <div id="botHand">
+            <P>Juan Carlos</P>
+            <img id="bHand" src="" alt="">
+            <p id="winnerTextBot"></p>
+        </div>
     </div>
 
 
     <div class="scoreBoard">
-        <div class="outcome">
-        </div>
-        <div class="playerScore"></div>
-        <div class="botScore"></div>
-    </div>
+        <div class="frame">
+            <h2>Scores!</h2>
+            <h3 class="scbrRounds">Rounds played: <span id="playedRounds">0</span></h3>
 
-    <div class="reset">
-        <div id="resetText"></div>
-        <div id="resetbtn">
-            <span>reset!</span>
+            <div id="outcome">
+                <div id="pFrame">
+                    <p>YOU</p>
+                    <div class="pScore">
+                        <p id="playerScore">0</p>
+                    </div>
+                </div>
+                <div id="bFrame">
+                    <p>Juan Carlos</p>
+                    <div class="bScore">
+                        <p id="botScore">0</p>
+                    </div>
+                </div>
+            </div>
+            <div class="reset">
+                <div class="btn" id="resetbtn">
+                    <span>Reset!</span>
+                </div>
+            </div>
         </div>
     </div>
     
-    
-
     <script type="text/javascript" src="jsScriptV2.js"></script>
 </body>
 </html>

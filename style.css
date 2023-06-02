@@ -1,0 +1,81 @@
+.Rules {
+    border: 3px solid lightslategray;
+    padding: 10px;
+    text-align: justify;
+    width: 500px;
+    margin: auto;
+    margin: 25px auto;
+}
+
+.choices, .hands  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.choices .frame {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 5px solid #5d6776;
+    border-radius: 5px
+}
+
+.scoreBoard .frame {
+    border: 5px solid lightslategray;
+    text-align: center;
+    width: 400px;
+    margin: auto;
+    padding-bottom: 15px;
+}
+
+#outcome {
+    display: flex;
+    gap: 40px;
+    text-align: center;
+    font-weight: 700;
+    justify-content: space-evenly;
+}
+
+.bScore, .pScore {
+    display: flex;
+    box-shadow: 1px 1px 5px #555 inset; /* efecto de hundido */
+    width: 50px;
+    height: 50px;
+    margin: auto;
+    align-items: center;
+}
+
+#botScore, #playerScore {
+   margin: auto; 
+}
+
+#playedRounds {
+    box-shadow: 1px 1px 5px #555 inset;
+}
+
+#resetbtn {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    background-color: #f2f2f2;
+    color: #333;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  #resetbtn:hover {
+    background-color: #e0e0e0;
+  }
+  
+  #resetbtn:active {
+    background-color: #d3d3d3;
+  }
+
+  #playerHand, #botHand {
+    text-align: center;
+    font-weight: 700;
+  }
