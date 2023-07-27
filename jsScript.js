@@ -9,7 +9,7 @@ let bChoice = null
 
 /* create a script that choose at random between rock paper scissors and outputs the result*/
 
-function botChoice() {
+function getBotChoice() {
     let botRandomNumber = Math.floor(Math.random()* 3);
     console.log("random number bot" + botRandomNumber)
     console.log(options[1])
@@ -20,7 +20,7 @@ function botChoice() {
 
 /* Ask the player to choose an option between rock paper scissors */
     
-function playerChoice() {
+function getPlayerChoice() {
     pChoice = prompt("Choose rock, paper or scissors: ")
     
     while (true) {    
@@ -37,7 +37,7 @@ function playerChoice() {
 
 
 /* Make a decision tree for the outcome of every match */
-function gameOutcome() {
+function playRound(pChoice) {
 
     switch(pChoice) {
 
@@ -95,8 +95,6 @@ function gameOutcome() {
     return playedRounds
 }
 
-/* Function to set the max number of rounds to be played */
-
  /* function numberOfRounds(){
     while (true) {
         maxRounds = prompt("How many games do you want to play? please answer with positive numbers only:  ")
@@ -116,16 +114,16 @@ function rockPaperScissors() {
     botPoints = 0
     playedrounds = 0
     /* numberOfRounds(); */
-    while(playedRounds < 5) {
-        playerChoice();
-        console.log("playerChoice ok " + pChoice )
-        botChoice();
-        console.log("botChoice ok " + bChoice )
-        gameOutcome();
-        console.log("gameOutcome ok " + "rounds: " + playedRounds + "player and bot point" + playerPoints + " " + botPoints)
-        document.getElementById("gameStatus").innerHTML = "Scores: you: " + playerPoints + "  -  PC: " + botPoints
-    } 
-    if (playerPoints > botPoints) {
+    
+    getPlayerChoice();
+    console.log("getPlayerChoice ok " + pChoice )
+    getBotChoice();
+    console.log("getBotChoice ok " + bChoice )
+    playRound();
+    console.log("gameOutcome ok " + "rounds: " + playedRounds + "player and bot point" + playerPoints + " " + botPoints)
+    document.getElementById("gameStatus").innerHTML = "Scores: you: " + playerPoints + "  -  PC: " + botPoints
+ 
+    /* if (playerPoints > botPoints) {
         alert("Congratulations! you won!")
     } if (playerPoints < botPoints) {
         alert("Too bad, game over!")

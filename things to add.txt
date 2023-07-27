@@ -1,0 +1,4 @@
+averiguar como hacer que el programa este siempre corriendo
+averiguar como hacer que el programa corra cuando se aprieta un boton
+    que al hacer click solo tome el div del boton, nada por encima
+    que 
